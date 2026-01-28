@@ -133,8 +133,8 @@ export const ComponentToolbar: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
                                                     <button
                                                         key={component.type}
                                                         draggable
-                                                        onDragStart={(e) => handleDragStart(e, component.type, component.label)}
-                                                        onClick={() => handleAddComponent(component.type, component.label)}
+                                                        onDragStart={(e) => handleDragStart(e, component.type as NodeType, component.label)}
+                                                        onClick={() => handleAddComponent(component.type as NodeType, component.label)}
                                                         className="flex flex-col items-center justify-center p-3 rounded-lg border border-transparent 
                                                                  bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 hover:border-accent-blue/30 hover:shadow-lg hover:-translate-y-0.5
                                                                  transition-all duration-200 group relative overflow-hidden cursor-grab active:cursor-grabbing"

@@ -427,14 +427,19 @@ export const useStore = create<StoreState>((set, get) => ({
     },
 
     saveToIndexedDB: async () => {
-        const { graphs, navigationStack, currentGraphId } = get();
+        const state = get();
 
         try {
+            // Save only the serializable parts of the state
             await saveArchitecture({
-                graphs,
-                navigationStack,
-                currentGraphId,
-            });
+                graphs: state.graphs,
+                navigationStack: state.navigationStack,
+                currentGraphId: state.currentGraphId,
+                history: state.history,
+                theme: state.theme,
+                viewLocked: state.viewLocked,
+                // Functions are not serializable, so we don't save them
+            } as StoreState);
         } catch (error) {
             console.error('Failed to save to IndexedDB:', error);
         }
