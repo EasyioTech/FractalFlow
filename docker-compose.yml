@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  fractalflow:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fractalflow-app
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - fractalflow-network
+    healthcheck:
+      test: [ "CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  fractalflow-network:
+    driver: bridge
