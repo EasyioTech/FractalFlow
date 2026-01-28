@@ -1,140 +1,140 @@
-# Zoomable Software Architecture Canvas
+# FractalFlow
 
-A powerful single-page application for creating nested software architecture diagrams with infinite zoom capabilities.
+**A modern, hierarchical system architecture design tool for building and visualizing complex software systems.**
 
-## Features
+## Overview
 
-🎯 **Deep Zoom Navigation** - Double-click any component to dive into its detailed architecture
-📊 **Infinite Canvas** - Pan and zoom freely to explore your system design
-🎨 **Beautiful Dark UI** - Modern Linear-like aesthetic with smooth animations
-💾 **Auto-Save** - All changes automatically persist to browser storage
-🔄 **Hierarchical Design** - Nest LLDs inside HLD components seamlessly
+FractalFlow is an interactive visual design tool that helps software architects and developers create, organize, and navigate multi-layered system architectures. Built with a "fractal" approach, it allows you to zoom into any component to reveal its internal architecture, creating infinitely deep hierarchical designs.
 
-## Architecture Components
+## Key Features
 
-- **API Gateway** - Entry points for API requests
-- **Server** - Application server instances
-- **Database** - Data storage systems
-- **Edge Device** - Client or IoT devices
-- **Load Balancer** - Traffic distribution nodes
+### 🎨 Visual Design
+- **Rich Node Library**: Service nodes, databases, cloud resources, flowchart shapes, and more
+- **Flexible Connections**: Multiple connection styles (smooth, bezier, straight) with custom labels
+- **Smart Grouping**: Organize related components into visual groups
+- **Conditional Flows**: Diamond-shaped decision nodes with Yes/No branching
+
+### 🔄 Hierarchical Navigation
+- **Drill-Down Architecture**: Double-click any node to design its internal architecture
+- **Breadcrumb Navigation**: Easily navigate back through architecture levels
+- **Graph Overview**: Jump between different architectural views
+
+### ⚡ Powerful Interactions
+- **Drag & Drop**: Add components from the sidebar to your canvas
+- **Live Editing**: Double-click nodes and edges to rename them inline
+- **Smart Connections**: Create connections with labeled edges and waypoints
+- **Context Menus**: Right-click for quick actions and property editing
+
+### 🎯 Command Palette
+Press `Cmd/Ctrl+K` to access quick commands:
+- Node operations (add, duplicate, delete, group)
+- Navigation (back, jump to graph, clear canvas)
+- View controls (zoom, fit view, lock, theme toggle)
+- File operations (save, export JSON/PNG, import)
+- Edit actions (undo, redo, select all)
+
+### 🎨 Modern UI
+- **Dark Mode**: Beautiful dark theme optimized for long design sessions
+- **Gradient Accents**: Eye-catching blue-cyan gradients throughout
+- **Smooth Animations**: Polished transitions and hover effects
+- **Responsive Design**: Works seamlessly on different screen sizes
+
+### 💾 Data Management
+- **Auto-Save**: Your work is automatically saved to browser storage
+- **Export/Import**: Save your architectures as JSON files
+- **Session Persistence**: Your work is preserved across browser sessions
 
 ## Quick Start
 
-### Installation
-
-```bash
-npm install
-```
-
-### Development
-
-```bash
-npm run dev
-```
-
-The application will be available at `http://localhost:5173`
-
-### Build for Production
-
-```bash
-npm run build
-npm run preview
-```
-
-## How to Use
-
 ### Adding Components
-
-1. Click any component in the left sidebar
-2. The component will be added to your canvas
-3. Drag nodes to reposition them
+1. **From Sidebar**: Drag components from the left panel onto the canvas
+2. **Command Palette**: Press `Cmd/Ctrl+K` → "Add Node"
+3. **Quick Add**: Click the "+" icon in the navigation dock
 
 ### Creating Connections
+1. Hover over a node to reveal connection handles
+2. Drag from any handle to another node's handle
+3. Double-click the edge to add a label
+4. Right-click for connection styling options
 
-1. Click and drag from any connection handle (blue dots)
-2. Drop on another node's handle to create a connection
-3. Connections are animated and auto-routed
+### Building Hierarchies
+1. Double-click any node to navigate into it
+2. Design the internal architecture of that component
+3. Use the breadcrumb trail at the top to navigate back
+4. Create as many levels as needed - there's no limit!
 
-### Deep Zoom (The Magic! ✨)
+### Organizing with Groups
+1. Add a "Group" component from the Layout category
+2. Drag and drop nodes onto the group container
+3. Resize the group as needed
+4. Move the group to reposition all contained nodes together
 
-1. **Double-click any node** to enter its nested view
-2. Design the internal architecture (LLD) of that component
-3. Nodes with nested graphs show a blue ring indicator
-4. Use the breadcrumb navigation at the top to go back
-5. Click the "← Back" button to return to parent view
-
-### Navigation
-
-- **Breadcrumb Trail** - Shows your current depth (e.g., System Overview > Database > Tables)
-- **Back Button** - Quick return to parent level
-- **Home Icon** - Jump back to root/main canvas
-
-## Technical Stack
-
-- **React 18** + **TypeScript**
-- **Vite** - Lightning-fast dev server
-- **React Flow** - Canvas rendering engine
-- **Zustand** - State management
-- **Tailwind CSS** - Styling
-- **Lucide React** - Icon library
-- **IndexedDB** - Client-side persistence
-
-## Data Architecture
-
-The application uses a **graph-based data model** where each node can contain a child graph:
-
-```typescript
-{
-  graphs: {
-    main: { nodes: [...], edges: [...] },
-    "graph-abc": { nodes: [...], edges: [...] },
-    "graph-xyz": { nodes: [...], edges: [...] }
-  },
-  navigationStack: ["main", "graph-abc"],
-  currentGraphId: "graph-abc"
-}
-```
-
-## Performance
-
-- **60fps transitions** between nested levels
-- **Lazy loading** - Only current graph is rendered
-- **Viewport persistence** - Return to exact zoom/pan position
-- **Optimized re-renders** - Memoized components and selectors
-
-## Browser Storage
-
-**Fresh Start on Every Session:**
-- 🔄 Data clears automatically when page is refreshed
-- 💾 Auto-saves during the current session (prevents accidental data loss)
-- 🚀 Always start with a clean canvas
-- 🌐 No server required - works completely offline
-- 📦 Can handle large architecture diagrams (>5MB) during session
-
-**Note:** If you need persistent storage across sessions, see `SESSION_DATA_MANAGEMENT.md` for configuration options.
+### Decision Flows
+1. Add a "Condition" node from the Flowchart category
+2. Connect from the green "YES" handle for true paths
+3. Connect from the red "NO" handle for false paths
+4. Connections are automatically labeled
 
 ## Keyboard Shortcuts
 
-- **Delete/Backspace** - Delete selected node or edge
-- **Ctrl/Cmd + Scroll** - Zoom in/out
-- **Space + Drag** - Pan the canvas
-- **Escape** - Deselect all
+| Shortcut | Action |
+|----------|--------|
+| `Cmd/Ctrl+K` | Open command palette |
+| `Cmd/Ctrl+S` | Save project |
+| `Cmd/Ctrl+Z` | Undo |
+| `Cmd/Ctrl+Shift+Z` | Redo |
+| `Cmd/Ctrl+D` | Duplicate selected |
+| `Delete/Backspace` | Delete selected |
+| `Cmd/Ctrl+0` | Fit view |
+| `Cmd/Ctrl++` | Zoom in |
+| `Cmd/Ctrl+-` | Zoom out |
+| `Cmd/Ctrl+L` | Toggle view lock |
+| `Cmd/Ctrl+T` | Toggle theme |
 
-## Tips
+## Component Categories
 
-💡 **Start Broad** - Create your HLD first, then zoom into each component
-💡 **Use Layers** - You can nest infinitely deep (HLD → LLD → Schema → Field Details)
-💡 **Consistent Naming** - Name nodes clearly before diving in
-💡 **Visual Indicators** - The blue ring shows which nodes contain nested diagrams
+### Cloud & Infrastructure
+- Microservice, API Gateway, Load Balancer
+- CDN, Queue, Cache
+- Cloud Service (AWS/Azure/GCP)
 
-## License
+### Data & Storage
+- Database, NoSQL, Data Lake
+- Message Queue, Event Stream
 
-MIT
+### Network & Security
+- Firewall, VPN, DNS
+- Auth Service, SSL/TLS
 
-## Contributing
+### Flowchart
+- Process, Decision (Condition)
+- Start/End, Circle
 
-This is a demonstration/prototype project. Feel free to fork and extend!
+### Layout
+- Group, Text Block, Code Block
+
+## Use Cases
+
+- **System Architecture Design**: Plan microservices architectures
+- **Cloud Infrastructure**: Design AWS, Azure, or GCP deployments  
+- **Data Flow Diagrams**: Visualize data movement through systems
+- **Process Flows**: Document business processes and workflows
+- **API Design**: Map out API structures and integrations
+- **Documentation**: Create visual documentation for existing systems
+
+## Tips & Best Practices
+
+1. **Start High-Level**: Begin with major system components, then drill down
+2. **Use Groups**: Organize related components visually
+3. **Label Everything**: Clear labels make diagrams self-documenting
+4. **Consistent Styling**: Use edge styles consistently (solid for sync, dashed for async)
+5. **Regular Saves**: Use `Cmd/Ctrl+S` to save important work
+6. **Export Backups**: Periodically export your architectures as JSON
+
+## About
+
+FractalFlow enables architects and developers to think fractally about system design - creating architectures where each component can contain its own internal architecture, infinitely deep. This mirrors how real software systems are built: from high-level service interactions down to internal component details.
 
 ---
 
-Built with ❤️ for software architects who think visually
+**Built with React, TypeScript, and ReactFlow**
