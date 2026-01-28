@@ -14,7 +14,7 @@ RUN npm ci
 COPY . .
 
 # Build the application
-RUN npm run build
+RUN npm run dev
 
 # Production stage - use nginx to serve static files
 FROM nginx:alpine
