@@ -3,7 +3,7 @@ import { NodeProps } from 'reactflow';
 import { useStore } from '../../store/useStore';
 import { DynamicHandles } from '../Handles/DynamicHandles';
 
-export const CodeNode: React.FC<NodeProps> = memo(({ data, id, selected }) => {
+export const CodeNode: React.FC<NodeProps> = memo(({ data, id, selected: _selected }) => {
     const { updateNode } = useStore();
     const [isEditing, setIsEditing] = useState(false);
     const [value, setValue] = useState(data.label);

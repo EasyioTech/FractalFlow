@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Palette, Activity, ArrowLeftRight, Minus, Settings2 } from 'lucide-react';
+import { X, Activity, Minus, Settings2 } from 'lucide-react';
 
 interface ConnectionPanelProps {
     edgeId: string;
@@ -10,7 +10,7 @@ interface ConnectionPanelProps {
 }
 
 export const ConnectionPanel: React.FC<ConnectionPanelProps> = ({
-    edgeId,
+    edgeId: _edgeId,
     edgeData,
     position,
     onClose,
@@ -38,14 +38,6 @@ export const ConnectionPanel: React.FC<ConnectionPanelProps> = ({
         });
         onClose();
     };
-
-    const colorPresets = [
-        { name: 'Default', color: '#3B82F6' },
-        { name: 'Success', color: '#10B981' },
-        { name: 'Warning', color: '#F59E0B' },
-        { name: 'Error', color: '#EF4444' },
-        { name: 'Purple', color: '#A855F7' },
-    ];
 
     return (
         <div

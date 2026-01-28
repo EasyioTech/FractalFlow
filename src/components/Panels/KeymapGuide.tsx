@@ -17,7 +17,8 @@ export const KeymapGuide: React.FC = () => {
 
     React.useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
-            if (e.key === '?' && !e.target?.matches('input, textarea')) {
+            const target = e.target as HTMLElement;
+            if (e.key === '?' && !target.matches?.('input, textarea')) {
                 setIsOpen(prev => !prev);
             }
         };

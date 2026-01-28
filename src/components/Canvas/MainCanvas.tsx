@@ -451,7 +451,7 @@ const CanvasInner: React.FC<{ activeTool: string }> = ({ activeTool }) => {
         updateViewport(viewport);
     }, [updateViewport]);
 
-    const onNodeDragStop = useCallback((event: React.MouseEvent, node: Node) => {
+    const onNodeDragStop = useCallback((_event: React.MouseEvent, node: Node) => {
         // 1. Get intersecting group nodes
         const intersections = getIntersectingNodes(node);
         const intersectingNodes = intersections.filter(n => n.type === 'group' && n.id !== node.id);
@@ -495,7 +495,7 @@ const CanvasInner: React.FC<{ activeTool: string }> = ({ activeTool }) => {
         }
     }, [getIntersectingNodes, updateNode, getNodes]);
 
-    const handleCommandAction = (action: string, data?: any) => {
+    const handleCommandAction = (action: string, _data?: any) => {
         const currentNodes = getNodes();
         const currentEdges = getEdges();
 

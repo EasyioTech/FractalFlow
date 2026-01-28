@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import {
     Search, Plus, Trash2, Copy, Group,
     Maximize, ZoomIn, ZoomOut, Save,
-    ArrowLeft, Layers, Eye, EyeOff, Sun, Moon,
+    ArrowLeft, Layers, Eye, Moon,
     Undo2, Redo2, FileJson, Image, Upload,
     Keyboard, Target, XCircle, Grid3x3
 } from 'lucide-react';

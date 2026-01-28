@@ -1,10 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-    Layout,
     MousePointer2,
-    PlusSquare,
-    Settings,
     Share2,
     Undo,
     Redo,

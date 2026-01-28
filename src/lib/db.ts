@@ -1,10 +1,10 @@
 import { openDB, DBSchema, IDBPDatabase } from 'idb';
-import { ArchitectureState } from '../types';
+import type { StoreState } from '../store/useStore';
 
 interface ArchitectureDB extends DBSchema {
     architecture: {
         key: string;
-        value: ArchitectureState;
+        value: StoreState;
     };
 }
 
@@ -28,12 +28,12 @@ async function getDB(): Promise<IDBPDatabase<ArchitectureDB>> {
     return dbInstance;
 }
 
-export async function saveArchitecture(state: ArchitectureState): Promise<void> {
+export async function saveArchitecture(state: StoreState): Promise<void> {
     const db = await getDB();
     await db.put(STORE_NAME, state, 'main');
 }
 
-export async function loadArchitecture(): Promise<ArchitectureState | null> {
+export async function loadArchitecture(): Promise<StoreState | null> {
     const db = await getDB();
     const state = await db.get(STORE_NAME, 'main');
     return state || null;

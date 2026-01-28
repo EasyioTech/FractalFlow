@@ -12,6 +12,7 @@ export type NodeType =
     | 'code-block'
     | 'text-block'
     | 'group'
+    | 'condition'
     | 'waypoint';
 
 export interface NodeData {

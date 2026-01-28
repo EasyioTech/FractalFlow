@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { ArchNode, ArchEdge, Graph, NodeType } from '../types';
 import { saveArchitecture, loadArchitecture } from '../lib/db';
 
-interface StoreState {
+export interface StoreState {
     graphs: Record<string, Graph>;
     navigationStack: string[];
     currentGraphId: string;

@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { Handle, Position, useNodeId } from 'reactflow';
 import { useStore } from '../../store/useStore';
 
